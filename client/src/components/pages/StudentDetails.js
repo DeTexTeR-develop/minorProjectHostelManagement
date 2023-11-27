@@ -1,9 +1,10 @@
+import api from '../../actions/api';
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from "classnames";
 import { createStudentDetails, getStudentDetails } from '../../actions/studentDetailsActions';
-import axios from "axios";
 import ReactLoading from 'react-loading';
 
 class StudentDetails extends Component {
@@ -51,11 +52,11 @@ class StudentDetails extends Component {
         });
     }
     async onDelete(id) {
-        await axios.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
+        await api.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStudentDetails(this.props.match.params.id);
     }
     async onStatusChange(id, isAvailable) {
-        await axios.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await api.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStudentDetails(this.props.match.params.id);
     }
     UNSAFE_componentWillReceiveProps(nextProps) {

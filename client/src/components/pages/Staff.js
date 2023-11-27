@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from "classnames";
 import { createStaffDetails, getStaffDetails } from '../../actions/staffActions';
-import axios from 'axios';
+import api from '../../actions/api';
 import ReactLoading from 'react-loading';
 
 class Staff extends Component {
@@ -24,11 +24,11 @@ class Staff extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     async onDelete(_id) {
-        await axios.delete(`/api/staff/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
+        await api.delete(`/api/staff/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStaffDetails();
     }
     async onAvailabilityChange(_id, isAvailable) {
-        await axios.put(`/api/staff/availability/${_id}`, { isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await api.put(`/api/staff/availability/${_id}`, { isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStaffDetails();
     }
     async onSubmit(e) {

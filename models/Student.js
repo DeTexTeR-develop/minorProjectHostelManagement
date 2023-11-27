@@ -15,9 +15,8 @@ const StudentSchema = new Schema({
   batch: {
     type: Number,
     required: true,
-    min: 2016,
-    max: 2020
-
+    min: 2021,
+    max: 2025
   },
   id: {
     type: String,

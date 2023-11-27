@@ -1,6 +1,6 @@
+import api from "../../actions/api";
 import React, { Component } from 'react';
 import classnames from "classnames";
-import axios from 'axios';
 import ReactLoading from 'react-loading';
 
 class Student extends Component {
@@ -22,17 +22,17 @@ class Student extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     async onDelete(id) {
-        await axios.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
+        await api.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
         await this.onFtechDetails();
     }
     async onStatusChange(id, isAvailable) {
-        await axios.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await api.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.onFtechDetails();
     }
     async onFtechDetails() {
         this.setState({ loading: true });
         if (this.state.findBy === 'id') {
-            await axios.get(`/api/student/id/${this.state.val}`).then((res) => {
+            await api.get(`/api/student/id/${this.state.val}`).then((res) => {
                 this.setState({ data: res, loading: false });
                 console.log(res);
                 if (!res.data.length) {
@@ -43,7 +43,7 @@ class Student extends Component {
             );
         }
         else if (this.state.findBy === 'room') {
-            await axios.get(`/api/student/room/${this.state.val}`).then((res) => {
+            await api.get(`/api/student/room/${this.state.val}`).then((res) => {
                 this.setState({ data: res, loading: false });
                 console.log(res);
                 if (!res.data.length) {
@@ -54,7 +54,7 @@ class Student extends Component {
                 console.log(err)
             );
         } else if (this.state.findBy === 'isAvailable') {
-            await axios.get(`/api/student/all`).then((res) => {
+            await api.get(`/api/student/all`).then((res) => {
                 let tempVal = this.state.val;
                 tempVal = tempVal.trim().toLowerCase();
                 if (tempVal === 'absent') {
@@ -125,9 +125,9 @@ class Student extends Component {
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div className="card" style={{ width: "12rem" }}>
                         <div className="card-body">
-                            <h5 className="card-title">B.Tech-2016</h5>
+                            <h5 className="card-title">B.Tech-2021</h5>
                             <h6 className="card-subtitle mb-2 text-muted">CS & IT</h6>
-                            <p onClick={() => this.onBatchSelect('2016')} className="card-text" style={{
+                            <p onClick={() => this.onBatchSelect('2021')} className="card-text" style={{
                                 cursor: 'pointer',
                                 color: '#00a4eb'
                             }}>Add or Check Info</p>
@@ -135,9 +135,9 @@ class Student extends Component {
                     </div>
                     <div className="card" style={{ width: "12rem" }}>
                         <div className="card-body">
-                            <h5 className="card-title">B.Tech-2017</h5>
+                            <h5 className="card-title">B.Tech-2022</h5>
                             <h6 className="card-subtitle mb-2 text-muted">CS & IT</h6>
-                            <p onClick={() => this.onBatchSelect('2017')} className="card-text" style={{
+                            <p onClick={() => this.onBatchSelect('2022')} className="card-text" style={{
                                 cursor: 'pointer',
                                 color: '#00a4eb'
                             }}>Add or Check Info</p>
@@ -145,9 +145,9 @@ class Student extends Component {
                     </div>
                     <div className="card" style={{ width: "12rem" }}>
                         <div className="card-body">
-                            <h5 className="card-title">B.Tech-2018</h5>
+                            <h5 className="card-title">B.Tech-2023</h5>
                             <h6 className="card-subtitle mb-2 text-muted">CS & IT</h6>
-                            <p onClick={() => this.onBatchSelect('2018')} className="card-text" style={{
+                            <p onClick={() => this.onBatchSelect('2023')} className="card-text" style={{
                                 cursor: 'pointer',
                                 color: '#00a4eb'
                             }}>Add or Check Info</p>
@@ -155,9 +155,9 @@ class Student extends Component {
                     </div>
                     <div className="card" style={{ width: "12rem" }}>
                         <div className="card-body">
-                            <h5 className="card-title">B.Tech-2019</h5>
+                            <h5 className="card-title">B.Tech-2024</h5>
                             <h6 className="card-subtitle mb-2 text-muted">CS & IT</h6>
-                            <p onClick={() => this.onBatchSelect('2019')} className="card-text" style={{
+                            <p onClick={() => this.onBatchSelect('2024')} className="card-text" style={{
                                 cursor: 'pointer',
                                 color: '#00a4eb'
                             }}>Add or Check Info</p>

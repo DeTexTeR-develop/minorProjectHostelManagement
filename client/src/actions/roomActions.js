@@ -14,7 +14,7 @@ export const getRoomAction = (block) => dispatch => {
         .then((res) => {
 
             dispatch({
-                type: GET_ROOM_ACTION,
+                type: GET_ROOM_ACTION,  
                 payload: res.data
             });
             dispatch(disableRoomActionLoading());
