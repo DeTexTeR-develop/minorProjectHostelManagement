@@ -50,10 +50,10 @@ module.exports = {
 - The application model is based on our [Institute](iiitvadodara.ac.in) Hostel. There are four blocks A, B, C, D. And four batches(B.Tech 2016, B.Tech 2017, B.Tech 2018, and B.Tech 2019) having occupancy in hostel rooms. These thing may differ for many Institute. You can easily change the structure of these components from [here](https://github.com/starkblaze01/Hostel-Management/tree/master/client/src/components/pages) according to your need.
 
 ## Team Members
-- [Aman Yadav](https://github.com/amany9000)
-- [Avdhesh Yadav](https://github.com/avi-spc)
-- [Anshuman Verma](https://github.com/anshumanv)
-- ,and [Me](https://github.com/starkblaze01/) 😎
+- [Sahil]
+- [Aastha]
+- [Deepanshi]
+- [Hirday]
 
 
 Liked the project? Hit the star button to show support!
